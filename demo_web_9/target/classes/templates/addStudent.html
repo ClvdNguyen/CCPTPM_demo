@@ -1,0 +1,29 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head> 
+    <title>Getting Started: Serving Web Content</title> 
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+<h1>Create a Student:</h1>
+      
+      <form th:action="@{/student/addStudent}"
+         th:object="${form}" method="POST">
+         First Name:
+         <input type="text" th:field="*{firstName}" />    
+         <br/>
+         Last Name:
+         <input type="text" th:field="*{lastName}" />     
+         <br/>
+         <input type="submit" value="Create" />
+      </form>
+      
+      <br/>
+            
+      <div th:if="${errorMessage}" th:utext="${errorMessage}"
+         style="color:red;font-style:italic;">
+         ...
+      </div>
+       
+</body>
+</html>
